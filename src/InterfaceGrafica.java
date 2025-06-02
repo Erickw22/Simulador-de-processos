@@ -64,7 +64,7 @@ public class InterfaceGrafica extends JFrame {
 
         add(topo, BorderLayout.NORTH);
 
-        // Tabela de Processos
+
         String[] colunas = {"PID", "Tempo de Chegada", "Tempo de Burst", "Prioridade"};
         DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0);
         tabelaProcessos = new JTable(modeloTabela);
@@ -72,7 +72,6 @@ public class InterfaceGrafica extends JFrame {
         tabelaScroll.setBorder(BorderFactory.createTitledBorder("Processos"));
         add(tabelaScroll, BorderLayout.WEST);
 
-        // Painel Central - Resultados
         JPanel painelCentro = new JPanel(new BorderLayout(10, 10));
         resultadoArea = new JTextArea();
         resultadoArea.setEditable(false);
@@ -86,7 +85,6 @@ public class InterfaceGrafica extends JFrame {
 
         add(painelCentro, BorderLayout.CENTER);
 
-        // Painel do Gráfico
         graficoPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -136,7 +134,7 @@ public class InterfaceGrafica extends JFrame {
         try {
             resultadoArea.setText("");
             ganttBlocos.clear();
-            processos.clear(); // Limpar processos para recarregar
+            processos.clear();
 
             DefaultTableModel modelo = (DefaultTableModel) tabelaProcessos.getModel();
             int rowCount = modelo.getRowCount();
