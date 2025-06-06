@@ -40,7 +40,7 @@ public class InterfaceGrafica extends JFrame {
         gbc.gridx = 1;
         topo.add(qtdProcessosField, gbc);
 
-        JLabel algoritmoLabel = new JLabel("Algoritmo:");
+        JLabel algoritmoLabel = new JLabel("Escalonamneto:");
         algoritmoLabel.setForeground(Color.WHITE);
         gbc.gridx = 2;
         topo.add(algoritmoLabel, gbc);
