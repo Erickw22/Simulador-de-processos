@@ -45,7 +45,7 @@ public class InterfaceGrafica extends JFrame {
         gbc.gridx = 2;
         topo.add(algoritmoLabel, gbc);
 
-        String[] algoritmos = {"FCFS", "SJF", "Prioridade", "Round Robin", "Híbrido"};
+        String[] algoritmos = {"FIFO", "SJF", "Prioridade", "Round Robin", "Híbrido"};
         algoritmoBox = new JComboBox<>(algoritmos);
         gbc.gridx = 3;
         topo.add(algoritmoBox, gbc);
@@ -117,9 +117,9 @@ public class InterfaceGrafica extends JFrame {
 
             int qtd = Integer.parseInt(qtdProcessosField.getText());
             for (int i = 0; i < qtd; i++) {
-                int tempoChegada = (int) (Math.random() * 10);  // Tempo de chegada entre 0 e 9
-                int tempoBurst = 1 + (int) (Math.random() * 10);  // Burst entre 1 e 10
-                int prioridade = 1 + (int) (Math.random() * 5);  // Prioridade entre 1 e 5
+                int tempoChegada = (int) (Math.random() * 10);  
+                int tempoBurst = 1 + (int) (Math.random() * 10);  
+                int prioridade = 1 + (int) (Math.random() * 5);  
 
                 modelo.addRow(new Object[]{i + 1, tempoChegada, tempoBurst, prioridade});
             }
@@ -158,7 +158,7 @@ public class InterfaceGrafica extends JFrame {
             List<String> resultados = new ArrayList<>();
 
             switch (algoritmo) {
-                case "FCFS":
+                case "FIFO":
                     resultados = TipoEscalonamentos.execucaoFCFS(processos, ganttBlocos);
                     break;
                 case "SJF":

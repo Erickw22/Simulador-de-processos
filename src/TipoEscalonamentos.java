@@ -5,12 +5,12 @@ public class TipoEscalonamentos {
     public static List<String> execucaoFCFS(List<Processo> processos, List<GanttBloco> ganttBlocos) {
         List<String> resultados = new ArrayList<>();
         List<Processo> lista = new ArrayList<>(processos);
-        lista.sort(Comparator.comparingInt(p -> p.tempoChegada));  // Ordena por tempo de chegada
+        lista.sort(Comparator.comparingInt(p -> p.tempoChegada)); 
 
         int tempoAtual = 0;
 
         for (Processo p : lista) {
-            if (tempoAtual < p.tempoChegada) tempoAtual = p.tempoChegada; // Espera até o processo chegar
+            if (tempoAtual < p.tempoChegada) tempoAtual = p.tempoChegada; 
             int espera = tempoAtual - p.tempoChegada;
             int turnaround = espera + p.tempoBurst;
 
@@ -147,7 +147,7 @@ public class TipoEscalonamentos {
         resultados.add("=== Fila Alta (RR) ===");
         resultados.addAll(execucaoRR(filaAlta, quantum, ganttBlocos));
 
-        resultados.add("=== Fila Baixa (FCFS) ===");
+        resultados.add("=== Fila Baixa (FIFO) ===");
         resultados.addAll(execucaoFCFS(filaBaixa, ganttBlocos));
 
         return resultados;
